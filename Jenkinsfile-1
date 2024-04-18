@@ -1,13 +1,14 @@
+
 pipeline {
-    agent any
+    agent { 
+      docker { image 'node:16-alpine' } 
+    }
+    
     stages {
-        stage('Print PATH') {
+        stage('Test') {
             steps {
-                sh 'echo $PATH'
+              sh 'node --version'
             }
         }
     }
 }
-
-
-
